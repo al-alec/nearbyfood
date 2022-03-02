@@ -11,19 +11,16 @@ use DefStudio\Telegraph\Models\TelegraphChat;
 
 class TelegramBotController extends WebhookHandler
 {
-  //
-  public function index()
-  {
+  private $html = "<b>Salut, moi c'est alec</b> 🤖
+      \nVous avez faim et vous etes fatigué de manger les meme bouffe chaque jour 😫?
 
+      \nVous n'avez pas un grand budget mais vous voulez bien manger 🥯🥗
 
-//    $bot = TelegraphBot::first();
+      \nJe vais a trouver les restaurants, ou petit vendeur ( ayimolou, veyi, Frites, Spaghetti, Poisson braisé, pinon etc..) les plus proche de vous 🍴😋
 
-//    $telegraph_bot = $bot->registerWebhook()->send();
+      \nVous recherchez egalement un endroit calme pour passer du temps avec votre partenaire? 😍🥰👩‍❤️‍👨  Ou encore un(e) ami(e) pour discuter affaire? 💵📧
 
-//    $chat = TelegraphChat::first();
-
-//    $chat->html("<strong>Hello!<strong>\n\nI'm here!")->send();
-  }
+      \n Je vais vous aider quelque soit votre budget, alors let's go. Explorez par vous meme";
 
   public function hi()
   {
@@ -46,7 +43,7 @@ class TelegramBotController extends WebhookHandler
       \n Je vais vous aider quelque soit votre budget, alors let's go. Explorez par vous meme";
 
 
-    $this->chat->html($html)
+    $this->chat->html($this->html)
       ->keyboard(
       Keyboard::make()->buttons([
           Button::make('Je veux manger')->action('delete')->param('id', '42'),
@@ -83,19 +80,10 @@ class TelegramBotController extends WebhookHandler
 //      ]);
 //    }
 
-    $html = "<b>Salut, moi c'est alec</b> 🤖
-      \nVous avez faim et vous etes fatigué de manger les meme bouffe chaque jour 😫?
-
-      \nVous n'avez pas un grand budget mais vous voulez bien manger 🥯🥗
-
-      \nJe vais a trouver les restaurants, ou petit vendeur ( ayimolou, veyi, Frites, Spaghetti, Poisson braisé, pinon etc..) les plus proche de vous 🍴😋
-
-      \nVous recherchez egalement un endroit calme pour passer du temps avec votre partenaire? 😍🥰👩‍❤️‍👨  Ou encore un(e) ami(e) pour discuter affaire? 💵📧
-
-      \n Je vais vous aider quelque soit votre budget, alors let's go. Explorez par vous meme";
 
 
-    $this->chat->html($html)
+
+    $this->chat->html($this->html)
       ->keyboard(
       Keyboard::make()->buttons([
           Button::make('Je veux manger')->action('delete')->param('id', '42'),
