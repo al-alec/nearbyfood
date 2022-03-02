@@ -20,9 +20,9 @@ class TelegramBotController extends WebhookHandler
 
 //    $telegraph_bot = $bot->registerWebhook()->send();
 
-    $chat = TelegraphChat::first();
+//    $chat = TelegraphChat::first();
 
-    $chat->html("<strong>Hello!<strong>\n\nI'm here!")->send();
+//    $chat->html("<strong>Hello!<strong>\n\nI'm here!")->send();
   }
 
   public function hi()
@@ -55,8 +55,24 @@ class TelegramBotController extends WebhookHandler
       ->send();
   }
 
+  private function createNewChat(){
+
+    $bot = TelegraphBot::first();
+
+    $chati = TelegraphChat::find($this->chat->chat_id);
+
+    if(!$chati)
+    $chat = $bot->chats()->create([
+      'chat_id' => $this->chat->chat_id,
+      'name' => 'user',
+    ]);
+  }
+
   public function start()
   {
+    $this->createNewChat();
+
+
     $html = "<b>Salut, moi c'est alec</b> 🤖
       \nVous avez faim et vous etes fatigué de manger les meme bouffe chaque jour 😫?
 
