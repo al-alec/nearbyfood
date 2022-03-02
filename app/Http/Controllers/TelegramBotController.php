@@ -9,6 +9,7 @@ use DefStudio\Telegraph\Models\TelegraphBot;
 use Illuminate\Http\Request;
 use DefStudio\Telegraph\Models\TelegraphChat;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Log;
 
 class TelegramBotController extends WebhookHandler
 {
@@ -72,18 +73,23 @@ class TelegramBotController extends WebhookHandler
   {
     Artisan::call('config:cache');
 
-    $this->chat->html("chat id: { $this->chat->chat_id }")->send();
-    return;
 
     $chati = TelegraphChat::find($this->chat->chat_id);
 
-    if(!$chati){
-      TelegraphChat::create([
-        'chat_id' => $this->chat->chat_id,
-        'telegraph_bot_id' => 1,
-        'name' => 'user',
-      ]);
+    try {
+      if(!$chati){
+        TelegraphChat::create([
+          'chat_id' => $this->chat->chat_id,
+          'telegraph_bot_id' => 1,
+          'name' => 'user',
+        ]);
+      }
     }
+    catch (\Exception $e){
+      Log::info("alec check this");
+      Log::error($e->getMessage());
+    }
+
 
 
 
