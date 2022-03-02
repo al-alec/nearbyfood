@@ -15,6 +15,5 @@ yarn-error.log
 /.vscode
 /node_modules
 .nuxt/
-/public/_nuxt/
 *.lock
 *-lock.json
