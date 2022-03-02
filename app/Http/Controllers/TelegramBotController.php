@@ -57,6 +57,9 @@ class TelegramBotController extends WebhookHandler
 
   public function start()
   {
+    Log::info("here is the chat id");
+    Log::info($this->chat->chat_id);
+
     $chati = TelegraphChat::find($this->chat->chat_id);
 
     try {
@@ -64,8 +67,7 @@ class TelegramBotController extends WebhookHandler
 
         $chat = TelegraphBot::first();
 
-        Log::info("here is the chat id");
-        Log::info($this->chat->chat_id);
+
         TelegraphChat::create([
           'chat_id' => $this->chat->chat_id,
           'telegraph_bot_id' => 1,
