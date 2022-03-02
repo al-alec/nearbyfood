@@ -65,13 +65,15 @@ class TelegramBotController extends WebhookHandler
     try {
       if(!$chati){
 
-        $bot = TelegraphBot::first();
+        $chat = TelegraphBot::first();
 
-        $chat = $bot->chats()->create([
+        Log::info("here is the chat id");
+        Log::info($this->chat->chat_id);
+        TelegraphChat::create([
           'chat_id' => $this->chat->chat_id,
+          'telegraph_bot_id' => 1,
           'name' => 'user',
         ]);
-
       }
     }
     catch (\Exception $e){
