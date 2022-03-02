@@ -8,6 +8,7 @@ use DefStudio\Telegraph\Keyboard\Keyboard;
 use DefStudio\Telegraph\Models\TelegraphBot;
 use Illuminate\Http\Request;
 use DefStudio\Telegraph\Models\TelegraphChat;
+use Illuminate\Support\Facades\Artisan;
 
 class TelegramBotController extends WebhookHandler
 {
@@ -69,6 +70,10 @@ class TelegramBotController extends WebhookHandler
 
   public function start()
   {
+    Artisan::call('config:cache');
+
+    $this->chat->html("chat id: { $this->chat->chat_id }")->send();
+    return;
 
     $chati = TelegraphChat::find($this->chat->chat_id);
 
