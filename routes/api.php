@@ -21,6 +21,7 @@ header('Access-Control-Allow-Origin: *');
 //   return $request->user();
 // });
 
-Route::get('/', function () {
-  return 'test api';
-});
+//Route::get('/', function () {
+//  return 'test api';
+//});
+Route::get('/', [\App\Http\Controllers\TelegramBotController::class, 'index']);
