@@ -46,11 +46,13 @@ class TelegramBotController extends WebhookHandler
       \n Je vais vous aider quelque soit votre budget, alors let's go. Explorez par vous meme";
 
 
-    $this->chat->html($html)->keyboard(
-      Keyboard::make()->buttons([
-          Button::make('Je veux manger')->action('delete')->param('id', '42'),
-          Button::make('Je veux passer du temps quelque part')->url('https://test.it'),
-    ]))->send();
+    $this->chat->html($html)
+//      ->keyboard(
+//      Keyboard::make()->buttons([
+//          Button::make('Je veux manger')->action('delete')->param('id', '42'),
+//          Button::make('Je veux passer du temps quelque part')->url('https://test.it'),
+//    ]))
+      ->send();
   }
 
 }
