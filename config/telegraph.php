@@ -16,7 +16,7 @@ return [
      *
      * For reference, see https://def-studio.github.io/telegraph/webhooks/overview
      */
-    'webhook_handler' => \App\Http\Controllers\TelegramBotController::class,
+    'webhook_handler' => EmptyWebhookHandler::class,
 
     /*
      * If enabled, Telegraph dumps received
