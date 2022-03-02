@@ -57,9 +57,6 @@ class TelegramBotController extends WebhookHandler
 
   public function start()
   {
-    Artisan::call('config:cache');
-
-
     $chati = TelegraphChat::find($this->chat->chat_id);
 
     try {
