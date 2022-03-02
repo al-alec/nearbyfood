@@ -12,11 +12,11 @@ class TelegramBotController extends Controller
   public function index(){
 
 
-    $bot = TelegraphBot::first();
+//    $bot = TelegraphBot::first();
 
-    $telegraph_bot = $bot->registerWebhook()->send();
+//    $telegraph_bot = $bot->registerWebhook()->send();
 
-    $chat = $telegraph_bot->chats()->first();
+    $chat = TelegraphChat::first();
 
     $chat->html("<strong>Hello!<strong>\n\nI'm here!")->send();
   }
