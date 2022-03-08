@@ -33,6 +33,5 @@ Follow these steps to setup the project
     
 ## Screenshots
 
-![App Screenshot](https://github.com/al-alec/nearbyfood/blob/master/public/img/screen1.jpg)
-![App Screenshot](https://github.com/al-alec/nearbyfood/blob/master/public/img/screen2.jpg)
+<img src="https://github.com/al-alec/nearbyfood/blob/master/public/img/screen1.jpg" data-canonical-src="https://github.com/al-alec/nearbyfood/blob/master/public/img/screen1.jpg" width="400" height="900" />    <img src="https://github.com/al-alec/nearbyfood/blob/master/public/img/screen2.jpg" data-canonical-src="https://github.com/al-alec/nearbyfood/blob/master/public/img/screen1.jpg" width="400" height="900" />
 
